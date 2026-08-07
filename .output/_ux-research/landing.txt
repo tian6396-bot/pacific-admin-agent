@@ -1,0 +1,12 @@
+## UI Pro Max Search Results
+**Domain:** landing | **Query:** SaaS dashboard admin operations
+**Source:** landing.csv | **Found:** 1 results
+
+### Result 1
+- **Pattern Name:** Real-Time / Operations Landing
+- **Keywords:** real-time, real-time monitor, operations, dashboard, telemetry, live data
+- **Section Order:** 1. Hero (product + live preview or status), 2. Key metrics/indicators, 3. How it works, 4. CTA (Start trial / Contact)
+- **Primary CTA Placement:** Primary CTA in nav + After metrics
+- **Color Strategy:** Dark or neutral. Status colors (green/amber/red). Data-dense but scannable.
+- **Conversion Optimization:** For ops/security/iot products. Demo or sandbox link. Trust signals.
+

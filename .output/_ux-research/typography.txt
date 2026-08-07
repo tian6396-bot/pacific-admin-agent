@@ -1,0 +1,64 @@
+## UI Pro Max Search Results
+**Domain:** typography | **Query:** enterprise Chinese sans
+**Source:** typography.csv | **Found:** 5 results
+
+### Result 1
+- **Font Pairing Name:** Chinese Simplified
+- **Category:** Sans + Sans
+- **Heading Font:** Noto Sans SC
+- **Body Font:** Noto Sans SC
+- **Mood/Style Keywords:** chinese, simplified, modern, professional, multilingual, readable
+- **Best For:** Simplified Chinese sites, mainland China market, business apps
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Noto+Sans+SC:wght@300;400;500;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+- **Tailwind Config:** fontFamily: { sans: ['Noto Sans SC', 'sans-serif'] }
+- **Notes:** Simplified Chinese support. Clean modern look.
+
+### Result 2
+- **Font Pairing Name:** Chinese Traditional
+- **Category:** Serif + Sans
+- **Heading Font:** Noto Serif TC
+- **Body Font:** Noto Sans TC
+- **Mood/Style Keywords:** chinese, traditional, elegant, cultural, multilingual, readable
+- **Best For:** Traditional Chinese sites, cultural content, Taiwan/Hong Kong markets
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Noto+Sans+TC:wght@300;400;500;700|Noto+Serif+TC:wght@400;500;600;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap');
+- **Tailwind Config:** fontFamily: { serif: ['Noto Serif TC', 'serif'], sans: ['Noto Sans TC', 'sans-serif'] }
+- **Notes:** Traditional Chinese character support. Elegant pairing.
+
+### Result 3
+- **Font Pairing Name:** Enterprise SaaS Mobile (Plus Jakarta Sans)
+- **Category:** Geometric Sans (Single Family)
+- **Heading Font:** Plus Jakarta Sans
+- **Body Font:** Plus Jakarta Sans
+- **Mood/Style Keywords:** enterprise, saas, b2b, professional, indigo, modern, approachable, legible, ios dynamic type, android scaling
+- **Best For:** B2B SaaS apps, productivity tools, government and finance mobile apps, admin dashboards, enterprise onboarding
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
+- **Tailwind Config:** fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+- **Notes:** Single-family system: Plus Jakarta Sans balances professional authority with mobile approachability. Weight scale: ExtraBold 800 for screen titles/hero (line height 1.1–1.2). Bold 700 for section headers. SemiBold 600 for card titles and buttons. Regular 400 for body text (line height 1.4–1.5). Must...
+
+### Result 4
+- **Font Pairing Name:** Corporate Trust
+- **Category:** Sans + Sans
+- **Heading Font:** Lexend
+- **Body Font:** Source Sans 3
+- **Mood/Style Keywords:** corporate, trustworthy, accessible, readable, professional, clean
+- **Best For:** Enterprise, government, healthcare, finance, accessibility-focused
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Lexend:wght@300;400;500;600;700|Source+Sans+3:wght@300;400;500;600;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+- **Tailwind Config:** fontFamily: { heading: ['Lexend', 'sans-serif'], body: ['Source Sans 3', 'sans-serif'] }
+- **Notes:** Lexend designed for readability. Excellent accessibility.
+
+### Result 5
+- **Font Pairing Name:** Minimal Swiss
+- **Category:** Sans + Sans
+- **Heading Font:** Inter
+- **Body Font:** Inter
+- **Mood/Style Keywords:** minimal, clean, swiss, functional, neutral, professional
+- **Best For:** Dashboards, admin panels, documentation, enterprise apps, design systems
+- **Google Fonts URL:** https://fonts.google.com/share?selection.family=Inter:wght@300;400;500;600;700
+- **CSS Import:** @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+- **Tailwind Config:** fontFamily: { sans: ['Inter', 'sans-serif'] }
+- **Notes:** Single font family with weight variations. Ultimate simplicity.
+

@@ -1,0 +1,92 @@
+## UI Pro Max Search Results
+**Domain:** ux | **Query:** dashboard form table chat accessibility
+**Source:** ux-guidelines.csv | **Found:** 8 results
+
+### Result 1
+- **Category:** Accessibility
+- **Issue:** Form Labels
+- **Platform:** All
+- **Description:** Inputs must have associated labels
+- **Do:** Use label with for attribute or wrap input
+- **Don't:** Placeholder-only inputs
+- **Code Example Good:** <label for='email'>
+- **Code Example Bad:** placeholder='Email' only
+- **Severity:** High
+
+### Result 2
+- **Category:** Responsive
+- **Issue:** Table Handling
+- **Platform:** Web
+- **Description:** Tables can overflow on mobile
+- **Do:** Use horizontal scroll or card layout
+- **Don't:** Wide tables breaking layout
+- **Code Example Good:** overflow-x-auto wrapper
+- **Code Example Bad:** Table overflows viewport
+- **Severity:** Medium
+
+### Result 3
+- **Category:** Forms
+- **Issue:** Submit Feedback
+- **Platform:** All
+- **Description:** Confirm form submission status
+- **Do:** Show loading then success/error state
+- **Don't:** No feedback after submit
+- **Code Example Good:** Loading -> Success message
+- **Code Example Bad:** Button click with no response
+- **Severity:** High
+
+### Result 4
+- **Category:** Accessibility
+- **Issue:** Alt Text
+- **Platform:** All
+- **Description:** Images need text alternatives
+- **Do:** Descriptive alt text for meaningful images
+- **Don't:** Empty or missing alt attributes
+- **Code Example Good:** alt='Dog playing in park'
+- **Code Example Bad:** alt='' for content images
+- **Severity:** High
+
+### Result 5
+- **Category:** Accessibility
+- **Issue:** Error Messages
+- **Platform:** All
+- **Description:** Error messages must be announced
+- **Do:** Use aria-live or role=alert for errors
+- **Don't:** Visual-only error indication
+- **Code Example Good:** role='alert'
+- **Code Example Bad:** Red border only
+- **Severity:** High
+
+### Result 6
+- **Category:** Accessibility
+- **Issue:** Color Contrast
+- **Platform:** All
+- **Description:** Text must be readable against background
+- **Do:** Minimum 4.5:1 ratio for normal text
+- **Don't:** Low contrast text
+- **Code Example Good:** #333 on white (7:1)
+- **Code Example Bad:** #999 on white (2.8:1)
+- **Severity:** High
+
+### Result 7
+- **Category:** Accessibility
+- **Issue:** Color Only
+- **Platform:** All
+- **Description:** Don't convey information by color alone
+- **Do:** Use icons/text in addition to color
+- **Don't:** Red/green only for error/success
+- **Code Example Good:** Red text + error icon
+- **Code Example Bad:** Red border only for error
+- **Severity:** High
+
+### Result 8
+- **Category:** Accessibility
+- **Issue:** ARIA Labels
+- **Platform:** All
+- **Description:** Interactive elements need accessible names
+- **Do:** Add aria-label for icon-only buttons
+- **Don't:** Icon buttons without labels
+- **Code Example Good:** aria-label='Close menu'
+- **Code Example Bad:** <button><Icon/></button>
+- **Severity:** High
+

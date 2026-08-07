@@ -1,0 +1,19 @@
+:root {
+  --color-primary: #1677ff;
+  --color-primary-soft: #e6f4ff;
+  --color-secondary: #69b1ff;
+  --color-cta: #1677ff;
+  --color-success: #52c41a;
+  --color-warning: #fa8c16;
+  --color-danger: #ff4d4f;
+  --color-bg: #f0f2f5;
+  --color-surface: #ffffff;
+  --color-text: #1f1f1f;
+  --color-text-secondary: #8c8c8c;
+  --color-border: #e8e8e8;
+  --font-display: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
+  --font-body: 'Noto Sans SC', 'Plus Jakarta Sans', sans-serif;
+  --header-h: 56px;
+  --radius: 12px;
+  --radius-sm: 8px;
+}

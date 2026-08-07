@@ -1,0 +1,104 @@
+## UI Pro Max Search Results
+**Domain:** color | **Query:** fintech enterprise SaaS blue trust
+**Source:** colors.csv | **Found:** 5 results
+
+### Result 1
+- **Product Type:** Fintech/Crypto
+- **Primary:** #F59E0B
+- **On Primary:** #0F172A
+- **Secondary:** #FBBF24
+- **On Secondary:** #0F172A
+- **Accent:** #8B5CF6
+- **On Accent:** #FFFFFF
+- **Background:** #0F172A
+- **Foreground:** #F8FAFC
+- **Card:** #222735
+- **Card Foreground:** #F8FAFC
+- **Muted:** #272F42
+- **Muted Foreground:** #94A3B8
+- **Border:** #334155
+- **Destructive:** #EF4444
+- **On Destructive:** #FFFFFF
+- **Ring:** #F59E0B
+- **Notes:** Gold trust + purple tech
+
+### Result 2
+- **Product Type:** SaaS (General)
+- **Primary:** #2563EB
+- **On Primary:** #FFFFFF
+- **Secondary:** #3B82F6
+- **On Secondary:** #FFFFFF
+- **Accent:** #EA580C
+- **On Accent:** #FFFFFF
+- **Background:** #F8FAFC
+- **Foreground:** #1E293B
+- **Card:** #FFFFFF
+- **Card Foreground:** #1E293B
+- **Muted:** #E9EFF8
+- **Muted Foreground:** #64748B
+- **Border:** #E2E8F0
+- **Destructive:** #DC2626
+- **On Destructive:** #FFFFFF
+- **Ring:** #2563EB
+- **Notes:** Trust blue + orange CTA contrast [Accent adjusted from #F97316 for WCAG 3:1]
+
+### Result 3
+- **Product Type:** Pet Tech App
+- **Primary:** #F97316
+- **On Primary:** #0F172A
+- **Secondary:** #FB923C
+- **On Secondary:** #0F172A
+- **Accent:** #2563EB
+- **On Accent:** #FFFFFF
+- **Background:** #FFF7ED
+- **Foreground:** #9A3412
+- **Card:** #FFFFFF
+- **Card Foreground:** #9A3412
+- **Muted:** #F1F0F0
+- **Muted Foreground:** #64748B
+- **Border:** #FED7AA
+- **Destructive:** #DC2626
+- **On Destructive:** #FFFFFF
+- **Ring:** #F97316
+- **Notes:** Playful orange + trust blue
+
+### Result 4
+- **Product Type:** Real Estate/Property
+- **Primary:** #0F766E
+- **On Primary:** #FFFFFF
+- **Secondary:** #14B8A6
+- **On Secondary:** #0F172A
+- **Accent:** #0369A1
+- **On Accent:** #FFFFFF
+- **Background:** #F0FDFA
+- **Foreground:** #134E4A
+- **Card:** #FFFFFF
+- **Card Foreground:** #134E4A
+- **Muted:** #E8F0F3
+- **Muted Foreground:** #64748B
+- **Border:** #99F6E4
+- **Destructive:** #DC2626
+- **On Destructive:** #FFFFFF
+- **Ring:** #0F766E
+- **Notes:** Trust teal + professional blue
+
+### Result 5
+- **Product Type:** Pharmacy/Drug Store
+- **Primary:** #15803D
+- **On Primary:** #FFFFFF
+- **Secondary:** #22C55E
+- **On Secondary:** #0F172A
+- **Accent:** #0369A1
+- **On Accent:** #FFFFFF
+- **Background:** #F0FDF4
+- **Foreground:** #14532D
+- **Card:** #FFFFFF
+- **Card Foreground:** #14532D
+- **Muted:** #E8F0F1
+- **Muted Foreground:** #64748B
+- **Border:** #BBF7D0
+- **Destructive:** #DC2626
+- **On Destructive:** #FFFFFF
+- **Ring:** #15803D
+- **Notes:** Pharmacy green + trust blue
+

@@ -1,0 +1,84 @@
+## UI Pro Max Search Results
+**Domain:** style | **Query:** enterprise SaaS dashboard clean trust
+**Source:** styles.csv | **Found:** 5 results
+
+### Result 1
+- **Style Category:** Enterprise SaaS (Mobile)
+- **Type:** Mobile
+- **Keywords:** enterprise, saas, b2b, professional, indigo, violet, gradient, polished, trustworthy, clean, approachable, spring, haptic
+- **Primary Colors:** Indigo #4F46E5, Violet #7C3AED
+- **Effects & Animation:** Indigo→Violet gradient primary CTAs + active tab highlights, colored card shadows rgba(79,70,229,0.08), pill buttons or 12pt radius, full-width CTA at screen bottom, spring press scale 0.97, floating label inputs with animated focus border, skeletal loading pulses (Indigo/Slate tint), Bottom Sheets ...
+- **Best For:** B2B backend management, productivity tools, government and finance mobile apps, SaaS companion apps, enterprise dashboards
+- **Performance:** ✓ Performant
+- **Accessibility:** ✓ WCAG AA
+- **Framework Compatibility:** React Native 10/10, Reanimated 10/10, NativeWind 9/10
+- **Complexity:** High
+- **AI Prompt Keywords:** Design a Modern Enterprise SaaS mobile app. Background #F8FAFC, surfaces #FFFFFF, primary #4F46E5 (Indigo), secondary #7C3AED (Violet). Typography: Plus Jakarta Sans, ExtraBold 800 for screen titles, Bold 700 for section headers, SemiBold 600 for buttons, Regular 400 for body. Line height 1.1–1.2 fo...
+- **CSS/Technical Keywords:** backgroundColor: '#F8FAFC', surfaceBg: '#FFFFFF', textPrimary: '#0F172A', textMuted: '#64748B', primary: '#4F46E5', secondary: '#7C3AED', success: '#10B981', border: '#E2E8F0', radiusCard: 16, radiusButton: 999, radiusInput: 8, shadowCard: 'rgba(79,70,229,0.08)', gradientPrimary: ['#4F46E5', '#7C3AE...
+- **Implementation Checklist:** ☐ Background #F8FAFC applied, ☐ Indigo→Violet gradient on primary CTA, ☐ Colored card shadows (not gray), ☐ Plus Jakarta Sans typography, ☐ Floating label inputs with Indigo focus, ☐ Scale 0.97 press with haptic Medium, ☐ Bottom Tab Navigation implemented, ☐ Safe Area strict compliance, ☐ Skeletal l...
+- **Design System Variables:** --bg: #F8FAFC, --surface: #FFFFFF, --text: #0F172A, --muted: #64748B, --primary: #4F46E5, --secondary: #7C3AED, --success: #10B981, --border: #E2E8F0, --radius-card: 16px, --radius-pill: 999px, --radius-input: 8px, --shadow-card: rgba(79,70,229,0.08), --font: Plus Jakarta Sans
+
+### Result 2
+- **Style Category:** Trust & Authority
+- **Type:** Landing Page
+- **Keywords:** Certificates/badges displayed, expert credentials, case studies with metrics, before/after comparisons, industry recognition, security badges
+- **Primary Colors:** Professional colors (blue/grey), trust colors, certification badge colors (gold/silver accents)
+- **Effects & Animation:** Badge hover effects, metric pulse animations, certificate carousel, smooth stat reveal
+- **Best For:** Healthcare/medical landing pages, financial services, enterprise software, premium/luxury products, legal services
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AAA
+- **Framework Compatibility:** Tailwind 10/10, Bootstrap 9/10
+- **Complexity:** Medium
+- **AI Prompt Keywords:** Design a trust-focused landing page. Use: certification badges, security indicators, expert credentials, industry awards, case study metrics, compliance logos (GDPR, SOC2), guarantee badges, professional photography.
+- **CSS/Technical Keywords:** badge grid layout, shield icons, lock icons for security, certificate styling, metric cards with icons, professional color scheme (blue/grey), subtle shadows for depth
+- **Implementation Checklist:** ☐ Security badges visible, ☐ Certifications verified, ☐ Metrics with sources, ☐ Professional imagery, ☐ Guarantee clearly stated, ☐ Contact info accessible
+- **Design System Variables:** --badge-height: 48px, --trust-color: #1E40AF, --security-green: #059669, --card-shadow: 0 4px 6px rgba(0,0,0,0.1), --metric-highlight: #F59E0B
+
+### Result 3
+- **Style Category:** Bento Box Grid
+- **Type:** General
+- **Keywords:** Modular cards, asymmetric grid, varied sizes, Apple-style, dashboard tiles, negative space, clean hierarchy, cards
+- **Primary Colors:** Neutral base + brand accent, #FFFFFF, #F5F5F5, brand primary
+- **Effects & Animation:** grid-template with varied spans, rounded-xl (16px), subtle shadows, hover scale (1.02), smooth transitions
+- **Best For:** Dashboards, product pages, portfolios, Apple-style marketing, feature showcases, SaaS
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AA
+- **Framework Compatibility:** Tailwind 10/10, CSS Grid 10/10
+- **Complexity:** Low
+- **AI Prompt Keywords:** Design a Bento Box grid layout. Use: modular cards with varied sizes (1x1, 2x1, 2x2), Apple-style aesthetic, rounded corners (16-24px), soft shadows, clean hierarchy, asymmetric grid, neutral backgrounds (#F5F5F7), hover effects.
+- **CSS/Technical Keywords:** display: grid, grid-template-columns: repeat(4, 1fr), grid-auto-rows: 200px, gap: 16px, border-radius: 24px, background: #FFFFFF, box-shadow: 0 4px 6px rgba(0,0,0,0.05)
+- **Implementation Checklist:** ☐ Grid responsive (4→2→1 cols), ☐ Card spans varied, ☐ Rounded corners consistent, ☐ Shadows subtle, ☐ Content fits cards, ☐ Hover scale (1.02)
+- **Design System Variables:** --grid-gap: 16px, --card-radius: 24px, --card-bg: #FFFFFF, --page-bg: #F5F5F7, --shadow: 0 4px 6px rgba(0,0,0,0.05), --hover-scale: 1.02
+
+### Result 4
+- **Style Category:** Minimalism & Swiss Style
+- **Type:** General
+- **Keywords:** Clean, simple, spacious, functional, white space, high contrast, geometric, sans-serif, grid-based, essential
+- **Primary Colors:** Monochromatic, Black #000000, White #FFFFFF
+- **Effects & Animation:** Subtle hover (200-250ms), smooth transitions, sharp shadows if any, clear type hierarchy, fast loading
+- **Best For:** Enterprise apps, dashboards, documentation sites, SaaS platforms, professional tools
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AAA
+- **Framework Compatibility:** Tailwind 10/10, Bootstrap 9/10, MUI 9/10
+- **Complexity:** Low
+- **AI Prompt Keywords:** Design a minimalist landing page. Use: white space, geometric layouts, sans-serif fonts, high contrast, grid-based structure, essential elements only. Avoid shadows and gradients. Focus on clarity and functionality.
+- **CSS/Technical Keywords:** display: grid, gap: 2rem, font-family: sans-serif, color: #000 or #FFF, max-width: 1200px, clean borders, no box-shadow unless necessary
+- **Implementation Checklist:** ☐ Grid-based layout 12-16 columns, ☐ Typography hierarchy clear, ☐ No unnecessary decorations, ☐ WCAG AAA contrast verified, ☐ Mobile responsive grid
+- **Design System Variables:** --spacing: 2rem, --border-radius: 0px, --font-weight: 400-700, --shadow: none, --accent-color: single primary only
+
+### Result 5
+- **Style Category:** Conversion-Optimized
+- **Type:** Landing Page
+- **Keywords:** Form-focused, minimalist design, single CTA focus, high contrast, urgency elements, trust signals, social proof, clear value
+- **Primary Colors:** Primary brand color, high-contrast white/light backgrounds, warning/urgency colors for time-limited offers
+- **Effects & Animation:** Hover states on CTA (color shift, slight scale), form field focus animations, loading spinner, success feedback
+- **Best For:** E-commerce product pages, free trial signups, lead generation, SaaS pricing pages, limited-time offers
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AA
+- **Framework Compatibility:** Tailwind 10/10, Bootstrap 9/10
+- **Complexity:** Medium
+- **AI Prompt Keywords:** Design a conversion-optimized landing page. Use: single primary CTA, minimal distractions, trust badges, urgency elements (limited time), social proof (testimonials), clear value proposition, form above fold, progress indicators.
+- **CSS/Technical Keywords:** form with focus states, input:focus ring, button: primary color high contrast, position: sticky for CTA, max-width: 600px for form, loading spinner, success/error states
+- **Implementation Checklist:** ☐ Single primary CTA visible, ☐ Form fields minimal (3-5), ☐ Trust badges present, ☐ Social proof above fold, ☐ Mobile form optimized, ☐ Loading states implemented, ☐ A/B test ready
+- **Design System Variables:** --cta-color: high contrast primary, --form-max-width: 600px, --input-height: 48px, --focus-ring: 3px solid accent, --success-color: #22C55E, --error-color: #EF4444
+
