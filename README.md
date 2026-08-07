@@ -3,7 +3,7 @@
 企业内部 Web 智能行政咨询助手：可信问答、服务办理、转人工坐席、运营治理。  
 技术栈：**Vue 3 + TypeScript** / **Python FastAPI + PyCore**。
 
-仓库：[https://github.com/tian6396-bot/-](https://github.com/tian6396-bot/-)
+仓库：[https://github.com/tian6396-bot/pacific-admin-agent](https://github.com/tian6396-bot/pacific-admin-agent)
 
 ---
 
