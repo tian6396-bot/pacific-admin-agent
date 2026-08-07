@@ -18,7 +18,7 @@ class AppSettings(BaseSettings):
 
     debug: bool = True
     host: str = "0.0.0.0"
-    port: int = 8000
+    port: int = 8010
     cors_origins: list[str] = ["http://localhost:5173"]
 
     database_url: str = "sqlite+aiosqlite:///./data/app.db"

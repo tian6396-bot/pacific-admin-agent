@@ -44,29 +44,39 @@ LLM_MODEL_EMBEDDING=text-embedding-v3
 ```
 
 未填 Key 时对话仍可用（知识模板降级）。修改 `.env` 后需**重启后端**。  
-健康检查：`http://localhost:8000/api/health` → `data.llm.configured` 应为 `true`。
+健康检查：`http://localhost:8010/api/health` → `data.llm.configured` 应为 `true`。
 
-## 启动命令
+## 启动命令（重要）
 
-**终端 1 — 后端（8000）**
+> **请在你自己的 Cursor 终端里启动**（点终端 `+` 开两个窗口）。  
+> 不要依赖对话里 Agent 后台拉起的进程——那些任务会被系统中断，所以你会觉得「老是挂」。
+
+**终端 1 — 后端（8010，避开旧的 8000）**
+
+```bash
+cd "/Users/wangxinyu/Downloads/开发规范包_V2"
+bash scripts/dev-backend.sh
+```
+
+或手动：
 
 ```bash
 cd "/Users/wangxinyu/Downloads/开发规范包_V2"
 source .venv/bin/activate
 cd backend
-PYTHONPATH=.. python -m uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
+PYTHONPATH=.. python -m uvicorn src.main:app --reload --host 0.0.0.0 --port 8010
 ```
 
 **终端 2 — 前端（5173）**
 
 ```bash
-cd "/Users/wangxinyu/Downloads/开发规范包_V2/frontend"
-npm run dev
+cd "/Users/wangxinyu/Downloads/开发规范包_V2"
+bash scripts/dev-frontend.sh
 ```
 
-浏览器打开：`http://localhost:5173`
+浏览器打开：`http://localhost:5173`（前端经 Vite 把 `/api` 代理到 `8010`）
 
-健康检查：`http://localhost:8000/api/health`
+健康检查：`http://localhost:8010/api/health`
 
 ## 演示账号
 
