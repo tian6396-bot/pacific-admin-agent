@@ -48,10 +48,13 @@ class ContentArtifactPublic(BaseModel):
     task_id: str | None = None
     owner_role: str
     created_at: datetime
+    has_pptx: bool = False
+    pptx_name: str | None = None
 
 
 class ContentCapabilities(BaseModel):
     can_rewrite: bool
     can_report: bool
+    can_pptx: bool
     export_datasets: list[ExportDataset]
     notes: list[str]

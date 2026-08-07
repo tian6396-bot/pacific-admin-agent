@@ -8,6 +8,7 @@ import json
 import re
 import uuid
 from datetime import datetime, timezone
+from pathlib import Path
 
 from pycore.core import get_logger
 from sqlalchemy import select
@@ -30,10 +31,12 @@ from src.models.content import (
     ReportRequest,
     RewriteRequest,
 )
+from src.core.config import BACKEND_ROOT, settings
 from src.repositories.content import ContentRepository
 from src.repositories.qa import QaRepository
 from src.services import llm_client
 from src.services.ops_service import write_audit
+from src.services.pptx_builder import build_report_pptx
 
 logger = get_logger()
 
@@ -56,6 +59,23 @@ def _safe_filename(name: str, ext: str) -> str:
     return f"{base}.{ext}"
 
 
+def _pptx_available() -> bool:
+    try:
+        import pptx  # noqa: F401
+
+        return True
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def _content_dir() -> Path:
+    path = Path(settings.upload_dir)
+    if not path.is_absolute():
+        path = BACKEND_ROOT / path
+    out = path / "content"
+    out.mkdir(parents=True, exist_ok=True)
+    return out
+
 class ContentService:
     def __init__(self, db: AsyncSession):
         self.db = db
@@ -67,7 +87,7 @@ class ContentService:
         notes = [
             "不可用本能力办理报销/请假等事务（仍走 Skill 确认闸）",
             "禁止导出薪资、证件号、银行卡等敏感明文",
-            "完整 PPT 可视化编辑器属 V1.1；本版报告为 Markdown",
+            "完整 PPT 可视化编辑器属 V1.1；本版提供 Markdown + 简易 PPTX 导出",
         ]
         if role == "employee":
             notes.append("员工仅可导出本人任务/工单")
@@ -75,14 +95,26 @@ class ContentService:
             notes.append("坐席仅可导出本人经办工单与质检回访")
         elif role == "admin":
             notes.append("运营可导出知识/Bad Case/审计清单；管理者聚合能力在本演示账号合并展示")
+        if _pptx_available():
+            notes.append("报告可同时下载 Markdown 与简易 PPTX（非完整幻灯片编辑器）")
+        else:
+            notes.append("未安装 python-pptx 时报告仅提供 Markdown；安装后自动附带 PPTX")
         return ContentCapabilities(
             can_rewrite=role in ("employee", "agent", "admin"),
             can_report=role in ("employee", "agent", "admin"),
+            can_pptx=_pptx_available(),
             export_datasets=datasets,
             notes=notes,
         )
 
+    def _meta(self, row: ContentArtifact) -> dict:
+        try:
+            return json.loads(row.meta_json or "{}")
+        except Exception:  # noqa: BLE001
+            return {}
+
     def to_public(self, row: ContentArtifact) -> ContentArtifactPublic:
+        meta = self._meta(row)
         return ContentArtifactPublic(
             id=row.id,
             kind=row.kind,  # type: ignore[arg-type]
@@ -94,6 +126,8 @@ class ContentService:
             task_id=row.task_id,
             owner_role=row.owner_role,
             created_at=row.created_at or _now(),
+            has_pptx=bool(meta.get("has_pptx")),
+            pptx_name=meta.get("pptx_name"),
         )
 
     async def list_mine(self, user: User) -> list[ContentArtifactPublic]:
@@ -228,17 +262,61 @@ class ContentService:
 
         if not text.lstrip().startswith("#"):
             text = f"# {body.title}\n\n{text}"
-        row = await self._save(
-            user,
+
+        meta: dict = {"topic": body.topic, "has_pptx": False}
+        artifact_id = str(uuid.uuid4())
+        pptx_bytes = build_report_pptx(body.title, text)
+        if pptx_bytes:
+            pptx_name = _safe_filename(body.title, "pptx")
+            pptx_path = _content_dir() / f"{artifact_id}.pptx"
+            pptx_path.write_bytes(pptx_bytes)
+            meta.update(
+                {
+                    "has_pptx": True,
+                    "pptx_name": pptx_name,
+                    "pptx_relpath": str(pptx_path.relative_to(BACKEND_ROOT)),
+                }
+            )
+
+        row = ContentArtifact(
+            id=artifact_id,
+            owner_id=user.id,
+            owner_role=user.role,
             kind="report",
             title=body.title,
             summary=body.topic[:120],
             body=text,
             mime="text/markdown",
             download_name=_safe_filename(body.title, "md"),
-            meta={"topic": body.topic},
+            task_id=None,
+            meta_json=json.dumps(meta, ensure_ascii=False),
+            created_at=_now(),
+        )
+        await self.repo.create(row)
+        await write_audit(
+            self.db,
+            user,
+            action="内容产出-report",
+            target=f"{row.id} {body.title}",
         )
         return self.to_public(row)
+
+    async def resolve_pptx_path(self, user: User, artifact_id: str) -> tuple[Path, str]:
+        row = await self.repo.get(artifact_id)
+        if row is None or row.owner_id != user.id:
+            raise FileNotFoundError("产出不存在")
+        meta = self._meta(row)
+        if not meta.get("has_pptx"):
+            raise FileNotFoundError("该产出没有 PPTX 文件")
+        rel = meta.get("pptx_relpath")
+        if not rel:
+            raise FileNotFoundError("PPTX 路径缺失")
+        path = Path(rel)
+        if not path.is_absolute():
+            path = BACKEND_ROOT / path
+        if not path.is_file():
+            raise FileNotFoundError("PPTX 文件不存在")
+        return path, str(meta.get("pptx_name") or path.name)
 
     async def export(self, user: User, body: ExportRequest) -> ContentArtifactPublic:
         allowed = ROLE_EXPORT.get(user.role, [])

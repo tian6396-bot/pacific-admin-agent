@@ -10,13 +10,6 @@ export type ExportDataset =
   | 'bad_cases'
   | 'audit_logs'
 
-export interface ContentCapabilities {
-  can_rewrite: boolean
-  can_report: boolean
-  export_datasets: ExportDataset[]
-  notes: string[]
-}
-
 export interface ContentArtifact {
   id: string
   kind: ContentKind
@@ -28,6 +21,16 @@ export interface ContentArtifact {
   task_id?: string | null
   owner_role: string
   created_at: string
+  has_pptx?: boolean
+  pptx_name?: string | null
+}
+
+export interface ContentCapabilities {
+  can_rewrite: boolean
+  can_report: boolean
+  can_pptx: boolean
+  export_datasets: ExportDataset[]
+  notes: string[]
 }
 
 interface ApiEnvelope<T> {
@@ -122,4 +125,21 @@ export function downloadArtifact(item: ContentArtifact) {
   a.download = item.download_name || 'artifact.txt'
   a.click()
   URL.revokeObjectURL(url)
+}
+
+export async function downloadArtifactPptx(item: ContentArtifact): Promise<void> {
+  try {
+    const { data } = await api.get(`/content/artifacts/${item.id}/pptx`, {
+      responseType: 'blob',
+    })
+    const blob = data as Blob
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = item.pptx_name || `${item.title || 'report'}.pptx`
+    a.click()
+    URL.revokeObjectURL(url)
+  } catch (err) {
+    throw unwrapError(err, '下载 PPTX 失败')
+  }
 }

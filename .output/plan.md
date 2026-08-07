@@ -129,6 +129,7 @@ B0 基础设施（可启动 /health）
 | B10 | 消息/设置/SLA 看板去 Mock | P10/P11/P15 | 已完成（用户确认继续） |
 | B11 | 百炼 LLM 接入（生成回答） | P03 | 已交付，待填 Key 验收 |
 | B12 | 内容产出：改写/报告/数据导出 | P03/P06/P07/P13/P24 | 已完成（用户确认继续） |
+| B13 | 报告简易 PPTX 导出 | 内容产出 | 已交付，待用户测试 |
 
 ---
 
@@ -567,7 +568,7 @@ B0 基础设施（可启动 /health）
 2. 重启后端 → `GET /api/health` 中 `llm.configured=true`
 3. `emp` 提问差旅标准 → 回答应为模型润色文案（非纯模板拼接）
 
-- [ ] **用户测试通过（本人执行后勾选）**
+- [x] **用户测试通过（本人执行后勾选）**
 
 ---
 
@@ -604,4 +605,21 @@ B0 基础设施（可启动 /health）
 4. 未配 LLM 时改写仍有模板结果。
 
 - [x] **用户测试通过（本人执行后勾选）**
+
+---
+
+### B13：报告简易 PPTX 导出（依赖 B12）
+
+#### 功能目标
+- 生成报告时附带简易 `.pptx`（按 Markdown `##` 拆页）；预览区可下载 MD / PPTX。非完整幻灯片编辑器。
+
+#### 涉及文件
+- `backend/src/services/pptx_builder.py`、`content_service.py`、`api/routes/content.py`
+- `frontend` ContentStudio 下载按钮；`requirements.txt` 增加 `python-pptx`
+
+#### 用户测试思路
+1. `pip install python-pptx` 后重启后端  
+2. 内容产出 → 生成报告 → 出现「下载 PPTX」并能用 PowerPoint/WPS 打开  
+
+- [ ] **用户测试通过（本人执行后勾选）**
 

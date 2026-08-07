@@ -5,6 +5,7 @@ import { useAuthStore } from '@/stores/auth'
 import {
   datasetLabel,
   downloadArtifact,
+  downloadArtifactPptx,
   exportContentData,
   generateReport,
   getContentCapabilities,
@@ -112,6 +113,15 @@ async function onExport() {
   }
 }
 
+async function onDownloadPptx() {
+  if (!active.value?.has_pptx) return
+  try {
+    await downloadArtifactPptx(active.value)
+  } catch (e) {
+    error.value = e instanceof Error ? e.message : '下载 PPTX 失败'
+  }
+}
+
 onMounted(refresh)
 </script>
 
@@ -204,9 +214,19 @@ onMounted(refresh)
               <h3>{{ active.title }}</h3>
               <p class="muted">{{ active.summary }}</p>
             </div>
-            <button class="btn btn-primary btn-sm" type="button" @click="downloadArtifact(active!)">
-              下载
-            </button>
+            <div class="preview-actions">
+              <button class="btn btn-ghost btn-sm" type="button" @click="downloadArtifact(active!)">
+                下载 {{ active.kind === 'export' ? 'CSV' : 'MD' }}
+              </button>
+              <button
+                v-if="active.has_pptx"
+                class="btn btn-primary btn-sm"
+                type="button"
+                @click="onDownloadPptx"
+              >
+                下载 PPTX
+              </button>
+            </div>
           </div>
           <pre class="body">{{ active.body }}</pre>
         </template>
@@ -296,6 +316,11 @@ onMounted(refresh)
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 10px;
+}
+.preview-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
 }
 .preview-head h3 {
   margin: 0 0 4px;

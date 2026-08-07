@@ -17,7 +17,7 @@
 cd "/Users/wangxinyu/Downloads/开发规范包_V2"
 /opt/homebrew/bin/python3.13 -m venv .venv
 source .venv/bin/activate
-pip install -r backend/requirements.txt   # 含 loguru、httpx（百炼调用）
+pip install -r backend/requirements.txt   # 含 loguru、httpx、python-pptx
 
 # 前端
 cd frontend

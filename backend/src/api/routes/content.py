@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, status
+from fastapi.responses import FileResponse
 
 from pycore.api.responses import success_response
 from src.api.deps import CurrentUser, DbSession
@@ -41,6 +42,19 @@ async def get_artifact(artifact_id: str, db: DbSession, user: CurrentUser):
     except FileNotFoundError as exc:
         raise _http_error(exc) from exc
     return success_response(data=item.model_dump(mode="json"))
+
+
+@router.get("/artifacts/{artifact_id}/pptx")
+async def download_pptx(artifact_id: str, db: DbSession, user: CurrentUser):
+    try:
+        path, filename = await ContentService(db).resolve_pptx_path(user, artifact_id)
+    except FileNotFoundError as exc:
+        raise _http_error(exc) from exc
+    return FileResponse(
+        path,
+        media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        filename=filename,
+    )
 
 
 @router.post("/rewrite")
