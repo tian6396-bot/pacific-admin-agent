@@ -11,6 +11,7 @@ const menus = [
   { label: '我的任务', to: '/tasks' },
   { label: '我的工单', to: '/tickets' },
   { label: '材料', to: '/materials' },
+  { label: '内容产出', to: '/content' },
   { label: '消息', to: '/messages' },
   { label: '设置', to: '/settings' },
 ]

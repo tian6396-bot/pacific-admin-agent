@@ -12,6 +12,7 @@ const router = useRouter()
 const inputText = ref('')
 const sessions = ref<ChatSession[]>([])
 const loading = ref(false)
+const sending = ref(false)
 const error = ref('')
 
 const p0Items = [
@@ -43,22 +44,36 @@ async function loadSessions() {
 }
 
 async function goChat(seed?: string) {
+  if (sending.value) return
+  sending.value = true
+  error.value = ''
   if (seed) sessionStorage.setItem('chat_seed', seed)
   try {
     const session = await createSession()
-    router.push({ path: '/chat', query: { sid: session.id } })
-  } catch {
-    router.push('/chat')
+    await router.push({ path: '/chat', query: { sid: session.id } })
+  } catch (e) {
+    error.value =
+      e instanceof Error
+        ? `无法进入对话：${e.message}（请确认后端 8010 / 前端 5173 已启动）`
+        : '无法进入对话，请确认服务已启动'
+    // 仍尝试进入对话页，由 ChatPage 自行建会话
+    try {
+      await router.push('/chat')
+    } catch {
+      /* ignore */
+    }
+  } finally {
+    sending.value = false
   }
 }
 
 function send() {
   const text = inputText.value.trim()
   if (!text) {
-    goChat()
+    void goChat()
     return
   }
-  goChat(text)
+  void goChat(text)
 }
 
 function openSession(id: string) {
@@ -106,10 +121,12 @@ onMounted(loadSessions)
       </div>
 
       <div class="composer card">
+        <p v-if="error" class="hint err composer-err">{{ error }}</p>
         <input
           v-model="inputText"
           class="input"
           placeholder="例如：T3 去深圳酒店标准是多少？"
+          :disabled="sending"
           @keyup.enter="send"
         />
         <div class="composer-bar">
@@ -119,12 +136,15 @@ onMounted(loadSessions)
               :key="c"
               type="button"
               class="chip"
+              :disabled="sending"
               @click="goChat(c)"
             >
               {{ c }}
             </button>
           </div>
-          <button class="btn btn-primary send-btn" type="button" @click="send">发送</button>
+          <button class="btn btn-primary send-btn" type="button" :disabled="sending" @click="send">
+            {{ sending ? '跳转中…' : '发送' }}
+          </button>
         </div>
       </div>
 
@@ -277,6 +297,10 @@ onMounted(loadSessions)
 .composer {
   width: min(720px, 100%);
   padding: 12px;
+}
+
+.composer-err {
+  margin-bottom: 8px;
 }
 
 .composer .input {

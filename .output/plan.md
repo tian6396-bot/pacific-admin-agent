@@ -128,6 +128,7 @@ B0 基础设施（可启动 /health）
 | B9 | 质检与回访 | P16 | 已完成（用户确认继续） |
 | B10 | 消息/设置/SLA 看板去 Mock | P10/P11/P15 | 已完成（用户确认继续） |
 | B11 | 百炼 LLM 接入（生成回答） | P03 | 已交付，待填 Key 验收 |
+| B12 | 内容产出：改写/报告/数据导出 | P03/P06/P07/P13/P24 | 已完成（用户确认继续） |
 
 ---
 
@@ -567,4 +568,40 @@ B0 基础设施（可启动 /health）
 3. `emp` 提问差旅标准 → 回答应为模型润色文案（非纯模板拼接）
 
 - [ ] **用户测试通过（本人执行后勾选）**
+
+---
+
+### B12：内容产出 — 改写 / 报告 / 数据导出（依赖 B1、B3、B11）
+
+> 依据：`.output/PRD.md` §2.1 能力矩阵（**不是全都有**，按角色授权）。  
+> 分层实现思路由 feature-plan skill 生成，**用户确认后动工**。
+
+#### 功能目标
+- 员工/坐席/运营能按权限发起三类产出：文档改写、报告草稿、数据导出；结果可预览并下载；写入 Planner 类任务便于回溯。
+- **不做**：完整 PPT 幻灯片编辑器、跨文档合并、用 Planner 办报销/请假等事务、导出薪资证件等敏感明文。
+
+#### 预计涉及文件
+- 新建：`backend/src/models/content.py`、`repositories/content.py`、`services/content_service.py`、`api/routes/content.py`
+- 新建：`frontend/src/services/contentService.ts`；页面增强：`ChatPage` / `TaskDetailPage` / `SessionWorkbenchPage` / `InsightsPage`（按角色露出入口）
+- 修改：`db/models.py`、`main.py`、权限校验与审计
+
+#### 分层实现思路
+- [x] **层 1：Pydantic 模型** — rewrite/report/export 请求响应与能力矩阵
+- [x] **层 2：ORM** — `content_artifacts` 表
+- [x] **层 3：Repository** — 按 owner 列表/读取
+- [x] **层 4：Service** — 角色硬校验 + 百炼/模板 + CSV 导出
+- [x] **层 5：API** — `/api/content/*`
+- [x] **层 6：前端** — 三端「内容产出」页按角色露出数据集
+
+#### 联调方式
+- 后端：`scripts/dev-backend.sh`（默认 8010）
+- 前端：`scripts/dev-frontend.sh`（5173，`/api` 代理）
+
+#### 用户测试思路
+1. `emp` → `/content`：改写一段通知；导出「我的任务」；不应看到审计日志选项。  
+2. `agent` → `/agent/content`：改写回复稿；导出本人经办；尝试选运营数据集应无选项。  
+3. `admin` → `/ops/content`：报告 + 导出 knowledge/bad_cases/audit_logs。  
+4. 未配 LLM 时改写仍有模板结果。
+
+- [x] **用户测试通过（本人执行后勾选）**
 

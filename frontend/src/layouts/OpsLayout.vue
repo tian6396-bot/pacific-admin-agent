@@ -9,6 +9,7 @@ const menus = [
   { label: '工具', to: '/ops/tools' },
   { label: '队列SLA', to: '/ops/queues' },
   { label: '运营洞察', to: '/ops/insights' },
+  { label: '内容产出', to: '/ops/content' },
   { label: '权限审计', to: '/ops/security' },
 ]
 </script>

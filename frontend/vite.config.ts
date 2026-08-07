@@ -12,6 +12,9 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
+    strictPort: true,
+    // 公网隧道（serveo/cloudflared 等）反代时放行外部 Host
+    allowedHosts: true,
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:8010',

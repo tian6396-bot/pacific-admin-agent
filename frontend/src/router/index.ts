@@ -28,6 +28,7 @@ const routes: RouteRecordRaw[] = [
       { path: 'records', redirect: { path: '/tasks', query: { tab: 'history' } } },
       { path: 'tickets', name: 'tickets', component: () => import('@/pages/TicketsPage.vue') },
       { path: 'materials', name: 'materials', component: () => import('@/pages/MaterialsPage.vue') },
+      { path: 'content', name: 'content', component: () => import('@/pages/ContentStudioPage.vue') },
       { path: 'messages', name: 'messages', component: () => import('@/pages/MessagesPage.vue') },
       { path: 'settings', name: 'settings', component: () => import('@/pages/SettingsPage.vue') },
     ],
@@ -55,6 +56,11 @@ const routes: RouteRecordRaw[] = [
       { path: 'collab', redirect: '/agent/queue' },
       { path: 'sla', name: 'agent-sla', component: () => import('@/pages/agent/SlaBoardPage.vue') },
       { path: 'qa', name: 'agent-qa', component: () => import('@/pages/agent/QaFollowupPage.vue') },
+      {
+        path: 'content',
+        name: 'agent-content',
+        component: () => import('@/pages/ContentStudioPage.vue'),
+      },
       {
         path: 'tasks',
         name: 'agent-tasks',
@@ -98,6 +104,11 @@ const routes: RouteRecordRaw[] = [
         path: 'insights',
         name: 'ops-insights',
         component: () => import('@/pages/ops/InsightsPage.vue'),
+      },
+      {
+        path: 'content',
+        name: 'ops-content',
+        component: () => import('@/pages/ContentStudioPage.vue'),
       },
       { path: 'badcases', redirect: { path: '/ops/insights' } },
       { path: 'metrics', redirect: { path: '/ops/insights' } },

@@ -466,3 +466,25 @@ class UserPreference(Base):
         server_default=func.now(),
         onupdate=func.now(),
     )
+
+
+class ContentArtifact(Base):
+    """内容产出物：改写 / 报告 / 导出。"""
+
+    __tablename__ = "content_artifacts"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    owner_id: Mapped[str] = mapped_column(String(36), index=True)
+    owner_role: Mapped[str] = mapped_column(String(32), index=True)
+    kind: Mapped[str] = mapped_column(String(16), index=True)  # rewrite|report|export
+    title: Mapped[str] = mapped_column(String(200))
+    summary: Mapped[str] = mapped_column(String(500), default="")
+    body: Mapped[str] = mapped_column(Text, default="")
+    mime: Mapped[str] = mapped_column(String(64), default="text/markdown")
+    download_name: Mapped[str] = mapped_column(String(255), default="artifact.md")
+    task_id: Mapped[str | None] = mapped_column(String(36), nullable=True, index=True)
+    meta_json: Mapped[str] = mapped_column(Text, default="{}")
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+    )

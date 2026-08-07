@@ -102,7 +102,7 @@ bash scripts/dev-frontend.sh
 | `/api/qa/*` | 质检记录与回访任务（agent/admin） |
 | `/api/notifications` | 站内消息聚合与已读 |
 | `/api/users/me/preferences` | 个人偏好 |
-| `/api/agent/sla-board` | SLA 看板聚合 |
+| `/api/content` | 改写 / 报告草稿 / 权限内数据导出 |
 
 材料文件目录：`backend/data/uploads/materials/`（随 `UPLOAD_DIR`）。
 

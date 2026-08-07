@@ -7,6 +7,7 @@ const menus = [
   { label: '待审批', to: '/agent/tasks?tab=approve' },
   { label: 'SLA', to: '/agent/sla' },
   { label: '质检回访', to: '/agent/qa' },
+  { label: '内容产出', to: '/agent/content' },
 ]
 </script>
 

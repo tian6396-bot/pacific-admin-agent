@@ -4,6 +4,7 @@ from pycore.api import APIConfig, APIServer
 from pycore.core import Logger, LoggerConfig, LogLevel, get_logger
 
 from src.api.routes.agent_queue import router as agent_queue_router
+from src.api.routes.content import router as content_router
 from src.api.routes.auth import router as auth_router
 from src.api.routes.chat import router as chat_router
 from src.api.routes.chat_ws import router as chat_ws_router
@@ -85,6 +86,7 @@ server.include_router(materials_router, prefix="/api")
 server.include_router(qa_router, prefix="/api")
 server.include_router(notifications_router, prefix="/api")
 server.include_router(preferences_router, prefix="/api")
+server.include_router(content_router, prefix="/api")
 
 app = server.app
 logger.info(
